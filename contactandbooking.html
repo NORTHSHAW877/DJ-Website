@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <link rel="stylesheet" href="style.css">
+     </head>
+     <body>
+      <div id="tabs-top">
+        <a href="index.html">HOME</a>
+        <a href="bio.html">BIO</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="gigs.html">GIGS</a>
+        <a href="contactandbooking.html">CONTACT & BOOKING</a>
+      </div>
+
+        <h2>CONTACT ME</h2>
+        <p>andywestdj@yahoo.com</p>
+        
+        
+        <section id="booking">
+    <h2>Book DJ Andy West</h2>
+    <p>Let’s make your event unforgettable. Fill in the details below and we’ll get back to you shortly.</p>
+
+    <form action="https://formspree.io/f/mnnznqjl" method="post">
+    
+    <!-- Name -->
+    <label for="fullName">Your Name <span style="color:red;">*</span></label><br>
+    <input type="text" id="fullName" name="fullName" required placeholder="Full Name"><br><br>
+    
+    <!-- Contact Email -->
+    <label for="email">Email <span style="color:red;">*</span></label><br>
+    <input type="email" id="email" name="email" required placeholder="you@example.com"><br><br>
+    
+    <!-- Phone -->
+    <label for="phone">Phone Number <span style="color:red;">*</span></label><br>
+    <input type="tel" id="phone" name="phone" required placeholder="+27 123 456 789"><br><br>
+
+    <!-- Event Type -->
+    <label for="eventType">Type of Event <span style="color:red;">*</span></label><br>
+    <select id="eventType" name="eventType" required>
+      <option value="">-- Select One --</option>
+      <option value="Nightclub">Nightclub</option>
+      <option value="Private Party">Private Party</option>
+      <option value="Corporate Event">Corporate Event</option>
+      <option value="Festival">Festival</option>
+      <option value="Other">Other</option>
+    </select><br><br>
+
+    <!-- Venue -->
+    <label for="venue">Venue Name & Location <span style="color:red;">*</span></label><br>
+    <input type="text" id="venue" name="venue" required placeholder="Club name, City"><br><br>
+
+    <!-- Event Date -->
+    <label for="date">Event Date <span style="color:red;">*</span></label><br>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <!-- Event Time -->
+    <label for="time">Event Time or Duration <span style="color:red;">*</span></label><br>
+    <input type="text" id="time" name="time" required placeholder="e.g. 10 PM – 2 AM"><br><br>
+
+    <!-- Additional Notes -->
+    <label for="notes">Additional Details / Vibe / Special Requests</label><br>
+    <textarea id="notes" name="notes" rows="4" placeholder="Let me know about the theme, vibe, setup, etc."></textarea><br><br>
+
+    <!-- Submit -->
+    <button type="submit">Send Booking Request</button>
+   </form>
+ </section>
+
+ <script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = form.getAttribute("action");
+
+    const response = await fetch(action, {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alert("🎉 Thank you! Your booking request was sent successfully.");
+      form.reset();
+    } else {
+      alert("⚠️ Oops! Something went wrong. Please try again.");
+    }
+  });
+</script>
+
+</body>
+</html>  
