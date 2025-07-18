@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html>
      <head>
+         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
      </head>
      <body>
-      <div id="tabs-top">
-        <a href="index.html">HOME</a>
-        <a href="bio.html">BIO</a>
-        <a href="music.html">MUSIC</a>
-        <a href="media.html">MEDIA</a>
-        <a href="gigs.html">GIGS</a>
-        <a href="contactandbooking.html">CONTACT & BOOKING</a>
-      </div>
+<div id="tabs-top">
+
+  <div class="tab-links">
+    <a href="index.html">HOME</a>
+    <a href="bio.html">BIO</a>
+    <a href="music.html">MUSIC</a>
+    <a href="media.html">MEDIA</a>
+    <a href="gigs.html">GIGS</a>
+    <a href="contactandbooking.html">CONTACT & BOOKING</a>
+  </div>
+
+  <!-- SOCIAL ICONS INLINE RIGHT -->
+  <div class="social-links">
+    <a href="https://www.instagram.com/andywestdj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://x.com/AndyWestDJ" target="_blank" aria-label="X / Twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+  </div>
+</div>
 
         <h2>CONTACT ME</h2>
         <p>andywestdj@yahoo.com</p>
         
-        
-        <section id="booking">
+<div id="booking">
+  <div class="form-container">
     <h2>Book DJ Andy West</h2>
     <p>Let’s make your event unforgettable. Fill in the details below and we’ll get back to you shortly.</p>
 
-    <form action="https://formspree.io/f/mnnznqjl" method="post">
+  <form action="https://formspree.io/f/mnnznqjl" method="post">
     
     <!-- Name -->
-    <label for="fullName">Your Name <span style="color:red;">*</span></label><br>
-    <input type="text" id="fullName" name="fullName" required placeholder="Full Name"><br><br>
+     <label for="fullName">Your Name <span style="color:red;">*</span></label><br>
+     <input type="text" id="fullName" name="fullName" required placeholder="Full Name"><br><br>
     
     <!-- Contact Email -->
-    <label for="email">Email <span style="color:red;">*</span></label><br>
-    <input type="email" id="email" name="email" required placeholder="you@example.com"><br><br>
+     <label for="email">Email <span style="color:red;">*</span></label><br>
+     <input type="email" id="email" name="email" required placeholder="you@example.com"><br><br>
     
     <!-- Phone -->
-    <label for="phone">Phone Number <span style="color:red;">*</span></label><br>
-    <input type="tel" id="phone" name="phone" required placeholder="+27 123 456 789"><br><br>
+     <label for="phone">Phone Number <span style="color:red;">*</span></label><br>
+     <input type="tel" id="phone" name="phone" required placeholder="+27 123 456 789"><br><br>
 
     <!-- Event Type -->
-    <label for="eventType">Type of Event <span style="color:red;">*</span></label><br>
-    <select id="eventType" name="eventType" required>
+     <label for="eventType">Type of Event <span style="color:red;">*</span></label><br>
+     <select id="eventType" name="eventType" required>
       <option value="">-- Select One --</option>
       <option value="Nightclub">Nightclub</option>
       <option value="Private Party">Private Party</option>
       <option value="Corporate Event">Corporate Event</option>
       <option value="Festival">Festival</option>
       <option value="Other">Other</option>
-    </select><br><br>
+     </select><br><br>
 
     <!-- Venue -->
-    <label for="venue">Venue Name & Location <span style="color:red;">*</span></label><br>
-    <input type="text" id="venue" name="venue" required placeholder="Club name, City"><br><br>
+     <label for="venue">Venue Name & Location <span style="color:red;">*</span></label><br>
+     <input type="text" id="venue" name="venue" required placeholder="Club name, City"><br><br>
 
     <!-- Event Date -->
-    <label for="date">Event Date <span style="color:red;">*</span></label><br>
-    <input type="date" id="date" name="date" required><br><br>
+     <label for="date">Event Date <span style="color:red;">*</span></label><br>
+     <input type="date" id="date" name="date" required><br><br>
 
     <!-- Event Time -->
-    <label for="time">Event Time or Duration <span style="color:red;">*</span></label><br>
-    <input type="text" id="time" name="time" required placeholder="e.g. 10 PM – 2 AM"><br><br>
+     <label for="time">Event Time or Duration <span style="color:red;">*</span></label><br>
+     <input type="text" id="time" name="time" required placeholder="e.g. 10 PM – 2 AM"><br><br>
 
     <!-- Additional Notes -->
-    <label for="notes">Additional Details / Vibe / Special Requests</label><br>
-    <textarea id="notes" name="notes" rows="4" placeholder="Let me know about the theme, vibe, setup, etc."></textarea><br><br>
+     <label for="notes">Additional Details / Vibe / Special Requests</label><br>
+     <textarea id="notes" name="notes" rows="4" placeholder="Let me know about the theme, vibe, setup, etc."></textarea><br><br>
 
     <!-- Submit -->
-    <button type="submit">Send Booking Request</button>
-   </form>
- </section>
+     <button type="submit">Send Booking Request</button>
+  </form>
+ </div>
+</div>
 
  <script>
   const form = document.querySelector("form");

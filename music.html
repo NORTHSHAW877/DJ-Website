@@ -1,19 +1,72 @@
 <!DOCTYPE html>
 <html>
-     <head>
-         <link rel="stylesheet" href="style.css">
-     </head>
-     <body>
-      <div id="tabs-top">
-        <a href="index.html">HOME</a>
-        <a href="bio.html">BIO</a>
-        <a href="music.html">MUSIC</a>
-        <a href="media.html">MEDIA</a>
-        <a href="gigs.html">GIGS</a>
-        <a href="contactandbooking.html">CONTACT & BOOKING</a>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+
+<div id="tabs-top">
+
+  <div class="tab-links">
+    <a href="index.html">HOME</a>
+    <a href="bio.html">BIO</a>
+    <a href="music.html">MUSIC</a>
+    <a href="media.html">MEDIA</a>
+    <a href="gigs.html">GIGS</a>
+    <a href="contactandbooking.html">CONTACT & BOOKING</a>
+  </div>
+
+  <!-- SOCIAL ICONS INLINE RIGHT -->
+  <div class="social-links">
+    <a href="https://www.instagram.com/andywestdj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://x.com/AndyWestDJ" target="_blank" aria-label="X / Twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+  </div>
+</div>
+
+    <h1>LISTEN TO MY MIXES</h1>
+
+    <div id="main-home">
+      <img src="images/DJJ.PNG" class="fade-in" style="width: 100%;" alt="DJ Andy West Live" />
+
+
+      <!-- Begin glowing box with content inside -->
+      <div class="custom-audio-player">
+        <div class="audio-section">
+          <h2>🎶 Latest Mix: “Captain Sykes, Ray & Jay feat Andy West DJ - Zule”</h2>
+          <p>Turn up the volume and vibe to a true crowd favorite!</p>
+          <p>This mix blends house, amapiano, and Afro beats.</p>
+
+          <audio id="myAudio">
+            <source src="audio/mymix.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <br /><br />
+          <button id="playBtn">▶ Play</button>
+        </div>
       </div>
-        <h1>LISTEN TO MY MIXES</h1>
-       
-    
-     </body>
-</html>  
+      <!-- End glowing box -->
+    </div>
+
+    <script>
+      const audio = document.getElementById("myAudio");
+      const playBtn = document.getElementById("playBtn");
+
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playBtn.textContent = "⏸ Pause";
+        } else {
+          audio.pause();
+          playBtn.textContent = "▶ Play";
+        }
+      });
+    </script>
+  </body>
+</html>
