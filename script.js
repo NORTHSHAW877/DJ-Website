@@ -1,14 +1,35 @@
-<script>
-  const audio = document.getElementById("myAudio");
-  const playBtn = document.getElementById("playBtn");
+.// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const tabLinks = document.querySelector('.tab-links');
 
-  playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      playBtn.textContent = "⏸ Pause";
-    } else {
-      audio.pause();
-      playBtn.textContent = "▶ Play";
-    }
-  });
-</script>
+  if (hamburger && tabLinks) {
+    hamburger.addEventListener('click', () => {
+      tabLinks.classList.toggle('active');
+    });
+  }
+
+  // OPTIONAL: if you're using Formspree, keep this part
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = form.getAttribute("action");
+
+      const response = await fetch(action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        alert("🎉 Thank you! Your booking request was sent successfully.");
+        form.reset();
+      } else {
+        alert("⚠️ Oops! Something went wrong. Please try again.");
+      }
+    });
+  }
+});
+
