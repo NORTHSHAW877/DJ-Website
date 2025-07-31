@@ -1,13 +1,13 @@
-.// script.js
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.hamburger');
-  const tabLinks = document.querySelector('.tab-links');
+// script.js
+const hamburger = document.getElementById('hamburger');
+const tabLinks = document.getElementById('tab-links');
 
-  if (hamburger && tabLinks) {
-    hamburger.addEventListener('click', () => {
-      tabLinks.classList.toggle('active');
-    });
-  }
+if (hamburger && tabLinks) {
+  hamburger.addEventListener('click', () => {
+    console.log('Menu clicked');
+    tabLinks.classList.toggle('active');
+  });
+}
 
   // OPTIONAL: if you're using Formspree, keep this part
   const form = document.querySelector("form");
@@ -31,5 +31,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
 

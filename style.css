@@ -107,35 +107,41 @@ body {
     display: flex;
   }
 
-  /* Hide navigation links by default on mobile */
+  /* Hide navigation links by default on mobile ONLY */
   .tab-links {
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     right: 0;
     background-color: #111;
     flex-direction: column;
     align-items: center;
-    display: none;
-    padding: 10px 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
     box-shadow: 0 5px 10px red;
     z-index: 1000;
+    transition: all 0.3s ease;
   }
 
-  /* Show nav when active */
+  /* Show nav when active on mobile */
   .tab-links.active {
-    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    padding: 10px 0;
   }
 
-  /* Make links full width and centered */
+  /* Make links full width and centered on mobile */
   .tab-links a {
-    width: 100%;
+    width: 90%;
     text-align: center;
-    padding: 15px 0;
-    border: none;
-    border-bottom: 1px solid #333;
+    padding: 15px;
+    margin: 5px 0;
+    border: 1px solid #333;
+    border-radius: 5px;
     box-shadow: none;
-    background-color: transparent;
+    background-color: #222;
   }
 
   .tab-links a:hover {
@@ -160,15 +166,34 @@ body {
   }
 }
 
+/* Desktop styles - make sure these override mobile when screen is larger */
+@media (min-width: 769px) {
+  .tab-links {
+    display: flex !important;
+    position: static !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    flex-direction: row !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  .hamburger {
+    display: none !important;
+  }
+}
+
 /* === MAIN CONTENT / PAGE SPECIFIC === */
-#main-man {
+
+#main-home {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
 }
 
-#main-man img {
+#main-home img {
   width: 100%;
   max-width: 900px;
   height: auto;
@@ -177,26 +202,221 @@ body {
   margin-bottom: 30px;
 }
 
+#main-home {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#main-home img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #e50914;
+  margin-bottom: 30px;
+  display: block;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  #main-home {
+    padding: 10px;
+  }
+  
+  #main-home img {
+    border-radius: 8px;
+    box-shadow: 0 0 10px #e50914;
+  }
+}
+
+/* MUSIC PAGE */
+/* === MAIN CONTENT FOR MUSIC PAGE === */
+#main-man {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#main-man h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #e50914;
+  text-shadow: 0 0 10px #e50914;
+}
+
+/* === IMAGE STYLES WITH FADE-IN === */
+#main-man img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #e50914;
+  margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE AUDIO PLAYER === */
 .custom-audio-player {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #e50914;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #e50914;
+  margin: 20px auto;
+  max-width: 800px;
+  border: 2px solid #e50914;
 }
 
 .custom-audio-player h2 {
   margin-bottom: 15px;
   font-size: 1.5rem;
+  color: #e50914;
+  text-shadow: 0 0 5px #e50914;
 }
 
 .custom-audio-player p {
   font-size: 1rem;
   margin: 5px 0;
+  color: #fff;
 }
 
+/* Enhanced audio player styling */
 audio {
   width: 100%;
   margin-top: 15px;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Custom audio controls styling (works in some browsers) */
+audio::-webkit-media-controls-panel {
+  background-color: #f0e9e9;
+  border-radius: 8px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  background-color: #e50914;
+  border-radius: 50%;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  #main-man {
+    padding: 15px;
+  }
+  
+  #main-man h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  #main-man img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #e50914;
+    margin-bottom: 20px;
+  }
+  
+  .custom-audio-player {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+  }
+  
+  .custom-audio-player h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  .custom-audio-player p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  #main-man {
+    padding: 10px;
+  }
+  
+  #main-man h1 {
+    font-size: 1.8rem;
+  }
+  
+  .custom-audio-player {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .custom-audio-player h2 {
+    font-size: 1.2rem;
+  }
+  
+  .custom-audio-player p {
+    font-size: 0.85rem;
+  }
+}
+
+/* === ADDITIONAL ENHANCEMENTS === */
+/* Hover effects for desktop */
+@media (min-width: 769px) {
+  .custom-audio-player:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px #e50914;
+    transition: all 0.3s ease;
+  }
+  
+  #main-man img:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Loading state for images */
+#main-man img {
+  transition: opacity 0.3s ease;
+}
+
+#main-man img:not([src]) {
+  opacity: 0;
+}
+
+/* Multiple audio players container */
+.audio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+@media (min-width: 1024px) {
+  .audio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+  }
 }
 
 /* === GIGS PAGE === */
@@ -208,7 +428,9 @@ audio {
 
 .gigs-page h1 {
   margin-bottom: 30px;
-  font-size: 2em;
+  font-size: 2.5rem; /* Make it larger like your bio page */
+  font-weight: bold;
+  text-transform: uppercase; /* This makes it ALL CAPS */
 }
 
 .gig-gallery {
@@ -253,11 +475,13 @@ audio {
   box-shadow: 0 0 15px #e50914;
 }
 
-#booking h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+.contact-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
   color: #fff;
   text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 #booking p {
@@ -296,11 +520,34 @@ audio {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  
+  /* Centering styles */
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
 }
 
 #booking button:hover {
   background-color: #c20710;
   transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #booking button {
+    width: 90%;
+    max-width: 300px;
+    padding: 16px 20px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #booking button {
+    width: 95%;
+    padding: 18px 16px;
+    font-size: 1rem;
+  }
 }
 
 /* === BIO SECTION === */
@@ -365,14 +612,6 @@ audio {
   #main-man {
     padding: 10px;
   }
-
-  .custom-audio-player h2 {
-    font-size: 1.2rem;
-  }
-
-  .custom-audio-player p {
-    font-size: 0.95rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -382,5 +621,114 @@ audio {
 
   .social-links a {
     font-size: 20px;
+  }
+}
+
+/* MEDIA PAGE */
+.media-page {
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.media-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+
+/* === FOOTER POSITIONING === */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main, 
+#main-man,
+.gigs-page,
+.media-page {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #e50914;
+}
+/* === BACKGROUND IMAGES === */
+
+/* Home page background */
+body.home-page {
+  background-image: url('images/background23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Contact page background */
+body.contact-page {
+  background-image: url('images/background23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Add dark overlay for better text readability */
+body.home-page::before,
+body.contact-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  body.home-page,
+  body.contact-page {
+    background-attachment: scroll;
+  }
+}
+
+/* === BACKGROUND IMAGES === */
+
+/* Home page background */
+body.home-page {
+  background-image: url('images/background23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Add dark overlay for better text readability */
+body.home-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  body.home-page {
+    background-attachment: scroll;
   }
 }
